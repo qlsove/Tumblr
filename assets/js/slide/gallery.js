@@ -1,10 +1,11 @@
 jQuery(document).ready(function($)
 {
+  $.facebox.settings.opacity = 0.9;
   $('a[rel*=facebox]').facebox(
   {
     loading_image : '/assets/images/facebox/loading.gif',
     close_image   : '/assets/images/facebox/closelabel.gif'
-  })
+  });
 });
 
 

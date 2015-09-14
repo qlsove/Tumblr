@@ -1,0 +1,180 @@
+body{
+margin: 0; 
+min-width: 840px; 
+height: 100%;
+/*padding-top: 10px; */
+background: #fff; 
+margin-bottom: 10px
+}
+
+.post{
+border-radius: 10px;
+padding: 10px 10px 10px 10px;
+margin-bottom: 20px;
+margin-right: 20px;
+box-shadow: 1px 2px 5px 1px #222;
+text-align: center;
+}
+
+
+.post img{
+vertical-align: middle;
+}
+
+body .content{
+width: 800px;
+/*min-height: 900px; */
+margin: 0 auto; 
+margin-top: 15px;
+padding-bottom: 20px;
+border-radius: 15px;
+font: 13px Arial, sans-serif; 
+background-color: #B0E2FF;
+position: relative;
+}
+
+body .content:after{
+content: "";
+height: 0;
+clear: both;
+display: block;
+}
+
+.ava{
+float: left; 
+margin-right: 20px
+}
+
+.list.photo{
+margin: 0 auto;
+position: relative;
+}
+
+#info{
+min-height: 200px;
+position: relative;
+}
+
+
+img.progress{
+position: absolute;
+top: 0%;
+left: 0;
+right: 0;
+bottom: 0%;
+width: 100px;
+height: 100px;
+margin: auto;
+display: none;
+}
+
+img.prevpict{
+position: absolute;
+top: 50%;
+left: -2%;
+width: 48px;
+height: 48px;
+margin: 0 auto;
+display: none;
+}
+
+img.nextpict{
+position: absolute;
+top: 50%;
+right: -2%;
+width: 48px;
+height: 48px;
+margin: auto;
+display: none;
+}
+
+img.scrollload{
+width: 50px;
+height: 50px;
+margin: 0 auto;
+}
+
+img.prevpict:hover, img.nextpict:hover{
+opacity: 1;
+}
+
+img.nextpict,img.prevpict {
+opacity: 0.25;
+}
+
+img.beforeload{
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0%;
+margin: auto;
+display: block;
+}
+
+img #currentslide{
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0%;
+margin: auto;
+display: block;
+}
+
+.descr{
+float: left; 
+padding-top: 10px
+}
+
+.foto{
+clear: both;
+}
+
+.information{
+float: left; 
+position: fixed;
+margin-top: 15px;
+margin-left: 15px;
+}
+
+.list{
+margin-left: 170px;
+text-align: center;
+}
+
+
+.details{
+width: 500px;
+margin: 0 auto;
+}
+
+.edit{
+float: right;
+margin-top: 6px;
+}
+
+.time{
+float: left;
+margin-top: 6px;
+}
+
+.status{
+display: none;
+color: green;
+text-align: center;
+}
+
+.addToGallery{
+margin-top: 2px;
+}
+
+.body .content #info{
+text-align: center;
+}
+
+
+
+
+
+
