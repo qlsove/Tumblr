@@ -9,6 +9,13 @@ jQuery(document).ready(function($)
 });
 
 
+$(document).bind('loading.facebox', function() 
+{
+  $(document).unbind('keydown.facebox');
+  $('#facebox_overlay').unbind('click');
+});
+
+
 jQuery(function($)
 {
   var length, current;
@@ -37,7 +44,7 @@ jQuery(function($)
         { 
           $(".gallerylength").val(data.length); 
           $(".currentpicture").val(0); 
-          $(".body .modalcontent #info .picture").append("<img id='currentslide' src='"+data[0].path+"' width='"+data[0].width+"'><br>")
+          $(".body .modalcontent #info .picture").append("<img id='currentslide' src='"+data[0].path+"' width='"+data[0].width+"'>")
             if (data.length>1)
               $('.nextpict').show();
         }
