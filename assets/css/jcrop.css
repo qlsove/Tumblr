@@ -1,15 +1,3 @@
-/* jquery.Jcrop.css v0.9.12 - MIT License */
-/*
-  The outer-most container in a typical Jcrop instance
-  If you are having difficulty with formatting related to styles
-  on a parent element, place any fixes here or in a like selector
-
-  You can also style this element if you want to add a border, etc
-  A better method for styling can be seen below with .jcrop-light
-  (Add a class to the holder and style elements for that extended class)
-*/
-
-
 .photo{
 width: 500px;
 margin:auto auto;
@@ -24,8 +12,8 @@ margin-bottom: 5px;
 
 .jcrop-holder {
   direction: ltr;
-  text-align: left;
-
+  text-align: center;
+  margin:0 auto;
 }
 /* Selection Border */
 .jcrop-vline,
@@ -180,6 +168,6 @@ img.jcrop-preview {
 }
 
 #crop, #release{
-display:none;
+/*display:none;*/
 margin: 3px 10px 3px 0;
 }

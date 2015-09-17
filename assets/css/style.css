@@ -10,10 +10,11 @@ margin-bottom: 10px
 .post{
 border-radius: 10px;
 padding: 10px 10px 10px 10px;
-margin-bottom: 20px;
+margin-bottom: 10px;
 margin-right: 20px;
 box-shadow: 1px 2px 5px 1px #222;
 text-align: center;
+position: relative;
 }
 
 
@@ -23,10 +24,10 @@ vertical-align: middle;
 
 body .content{
 width: 800px;
-/*min-height: 900px; */
+min-height: 900px;
 margin: 0 auto; 
 margin-top: 15px;
-padding-bottom: 20px;
+padding-bottom: 10px;
 border-radius: 15px;
 font: 13px Arial, sans-serif; 
 background-color: #B0E2FF;
@@ -45,14 +46,11 @@ float: left;
 margin-right: 20px
 }
 
-.list.photo{
-margin: 0 auto;
-position: relative;
-}
 
 #info{
 min-height: 200px;
 position: relative;
+background-color: #B0E2FF;
 }
 
 
@@ -88,17 +86,35 @@ margin: auto;
 display: none;
 }
 
+img.close{
+position: absolute;
+top: 0%;
+right: 0%;
+width: 30px;
+height: 30px;
+margin: auto;
+display: none;
+}
+
 img.scrollload{
 width: 50px;
 height: 50px;
 margin: 0 auto;
 }
 
-img.prevpict:hover, img.nextpict:hover{
+img.pict, img.target{
+margin: 0 auto;
+}
+
+img#target{
+margin: 0 auto;
+}
+
+img.prevpict:hover, img.nextpict:hover, img.close:hover {
 opacity: 1;
 }
 
-img.nextpict,img.prevpict {
+img.nextpict,img.prevpict, img.close {
 opacity: 0.25;
 }
 
@@ -127,15 +143,14 @@ float: left;
 padding-top: 10px
 }
 
-.foto{
-clear: both;
-}
 
 .information{
 float: left; 
 position: fixed;
 margin-top: 15px;
 margin-left: 15px;
+text-align: center;
+width: 128px;
 }
 
 .list{
@@ -149,9 +164,8 @@ width: 500px;
 margin: 0 auto;
 }
 
-.edit{
+.cropbtn{
 float: right;
-margin-top: 6px;
 }
 
 .time{
@@ -165,12 +179,47 @@ color: green;
 text-align: center;
 }
 
-.addToGallery{
+#gallery{
+margin-top: 3px;
+}
+
+.addToGallery, .cropbtn{
 margin-top: 2px;
 }
 
 .body .content #info{
 text-align: center;
+}
+
+.modalwindow{
+display:none;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+text-align: center;
+margin: auto auto;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+
+}
+
+.modalframe{
+display:none;
+margin: auto auto;
+position: fixed;
+top: 10%;
+left: 0%;
+right: 0%;
+/*bottom: 50%;*/
+width: 640px;
+min-height: 200px;
+/*height: 540px;*/
+background-color: #B0E2FF;
+border-radius: 10px;
+padding: 10px 10px 10px 10px;
+box-shadow: 1px 2px 5px 1px #222;
 }
 
 

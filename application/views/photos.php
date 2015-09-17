@@ -1,6 +1,6 @@
-<div class="information"><img src="<?=$avatar?> "><br><br>
+<div class="information"><img src="<?=$avatar?> "><br>
 <a href="<?=$profile["blog"]["url"]?>"><?=$profile["blog"]["title"]?></a><br>
-<a id="gallery" href="#info" rel="facebox">Галерея</a><br>
+<button id="gallery" >Галерея</button>
 </div><br>
 
 <div class="list">
@@ -19,7 +19,7 @@
           <?php
           endif;
           ?>
-        <a class="edit" href="/profile/cropper?user=<?=$photo["blog_name"]?>&id=<?=$photo["id"]?>" target="_blank">Обрізати</a><br>
+        <button class="cropbtn" onclick="precrop(this)"  value="<?=$photo["id"]?>">Редагувати</button><br>
       </div>
     </div>
   <?php
@@ -27,13 +27,9 @@
 	?>
 </div>
 
-<div id="info" style="display:none;">
-  <input type="hidden" class="currentpicture" value="0">
-  <input type="hidden" class="gallerylength" value="0">
-  <img  class="prevpict"  src="/assets/images/gallery/prev.png">
-  <img  class="beforeload"  src="/assets/images/facebox/loading.gif" width="200" >
-  <div class="picture"></div>
-  <img  class="nextpict"  src="/assets/images/gallery/next.png">
+<div class="modalwindow">
+  <div class="modalframe">
+  </div>
 </div>
 
 
