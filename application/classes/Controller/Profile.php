@@ -57,16 +57,4 @@ class Controller_Profile extends Controller_Template_Default {
 			$this->template->content= View::factory('photos', $this->data);
 		}
 
-
-	public function action_gallery()
-		{
-			$this->template->title = 'Галерея';
-			$blogName=null !==($this->request->query('user'))?$this->request->query('user'):$this->blogName;
-			$id=$this->request->query('id');
-			$temp=$this->client->getBlogPosts($blogName, array('type' => 'photo', 'id' => $id));
-			$this->data["photo"]=json_decode(json_encode($temp), true);
-
-			$this->template->content= View::factory('gallery', $this->data);
-		}
-
 }
