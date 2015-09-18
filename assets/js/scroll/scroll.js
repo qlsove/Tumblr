@@ -8,7 +8,7 @@ $(document).ready(function()
     {
       var startFrom = parseInt($("#start").val());
 
-      $(".list").append("<img class='scrollload' src='/assets/images/facebox/loading.gif' width='50'>");
+      $(".list").append("<img class='scrollload' src='/assets/images/cropper/loading.gif' width='50'>");
       $('.scrollload').show();
 
       $.ajax(
@@ -34,7 +34,7 @@ $(document).ready(function()
                   if (data.dest=='api')
                     $(".list").append('<div class="post"><br><img class="pict" src="' + data.url + '" width="' + data.width + '" ><br><div class="details"><div class="time">'+ data.timestamp +'</div><button class="addToGallery" onclick="addToGallery(this)" value="'+ data.id +'"  type="button">Додати в галерею</button><button class="cropbtn" onclick="precrop(this)"  value="'+ data.id +'">Редагувати</button><br><br></div>');
                   else 
-                    $(".list").append('<div class="post"><br><img class="pict" src="' + data.url + '" width="' + data.width + '" ><br><div class="details"><div class="time">'+ data.timestamp +'</div><button class="addToGallery" onclick="addToGallery(this)" value="'+ data.id +'"  type="button">Додати в галерею</button><button class="original" onclick="uncrop(this)" value="'+ data.id +'"  type="button">Повернути оригінал</button></button><button class="cropbtn" onclick="precrop(this)"  value="'+ data.id +'">Редагувати</button><br></div>');
+                    $(".list").append('<div class="post"><br><img class="pict" src="' + data.url + '" width="' + data.width + '" ><br><div class="details"><div class="time">'+ data.timestamp +'</div><button class="addToGallery" onclick="addToGallery(this)" value="'+ data.id +'"  type="button">Додати в галерею</button><button class="original" onclick="uncrop(this)" value="'+ data.id +'"  type="button">Повернути оригінал</button></button><br></div>');
               });
             inProgress = false;
             startFrom = startFrom+3;

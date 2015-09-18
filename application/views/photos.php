@@ -17,9 +17,12 @@
           ?>
         <button class="original" onclick="uncrop(this)"  value="<?=$photo["id"]?>">Повернути оригінал</button>
           <?php
-          endif;
+          else:
           ?>
         <button class="cropbtn" onclick="precrop(this)"  value="<?=$photo["id"]?>">Редагувати</button><br>
+        <?php
+          endif;
+          ?>
       </div>
     </div>
   <?php
@@ -31,6 +34,3 @@
   <div class="modalframe">
   </div>
 </div>
-
-
-

@@ -164,7 +164,7 @@ width: 500px;
 margin: 0 auto;
 }
 
-.cropbtn{
+.cropbtn, .original{
 float: right;
 }
 

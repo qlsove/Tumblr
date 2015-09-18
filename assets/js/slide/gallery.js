@@ -94,13 +94,20 @@ jQuery(function($)
 
 function addToGallery(obj)
 {
+  $(".addToGallery[value="+obj.value+"]").after('<img  class="beforeload"  src="/assets/images/gallery/loading.gif" width="100">');
+  
   $.ajax(
   { 
-  url: "/ajax/addToGallery",
-  method: 'POST',
-  data: {"id" : obj.value}
+    url: "/ajax/addToGallery",
+    method: 'POST',
+    data: {"id" : obj.value}
   })
-  $(obj).hide();
+
+  .done(function(data)
+  {
+    $(obj).closest(".post").find('.beforeload').remove();
+  }); 
+
 }
 
 

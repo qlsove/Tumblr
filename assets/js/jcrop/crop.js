@@ -1,12 +1,6 @@
 var x1, y1, x2, y2, crop = 'assets/images/';
 var jcrop_api;
 
-jQuery.exists = function(selector)
-{
-	return ($(selector).length > 0);
-}
-
-
 $.urlParam = function(name)
 {
 	var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -19,18 +13,6 @@ function release()
 	jcrop_api.release();
 	$('#crop').hide();
 }
-
-
-/*function cancel(obj)
-{
-	release();
-	$(obj).hide();
-	$('#target').closest(".post").find('.jcrop-holder').remove();
-	$('.cropper').remove();
-	$('.crop').hide();
-	$('.release').hide();
-	$('.details').show();
-};*/
 
 
 function showCoords(c)
@@ -68,12 +50,13 @@ function uncrop(obj)
 
 	.done(function(data)
 	{
-		$(obj).closest(".post").find('.beforeload').remove();
-		data = jQuery.parseJSON(data);  
-		$(obj).hide();
+		data = jQuery.parseJSON(data);
 		$(obj).closest(".post").find('.pict').attr('src', data.url);
 		$(obj).closest(".post").find('.pict').attr('width', data.width);
 		$(obj).closest(".post").find('.pict').attr('height', '');
+		$(obj).closest(".post").find('.beforeload').remove();  
+		$(obj).after('<button class="cropbtn" onclick="precrop(this)"  value="'+ obj.value +'">Редагувати</button>');
+		$(obj).remove();
 	}); 
 }
 
@@ -154,6 +137,7 @@ function cropthis()
   	$(".cropbtn[value="+id+"]").closest(".post").find('.pict').attr('height', data.height);
   		if (!($(".addToGallery[value="+id+"]").closest(".post").find('.original').length>0))
   		{
+  			$(".cropbtn[value="+id+"]").remove();
   			$(".addToGallery[value="+id+"]").after('<button class="original" onclick="uncrop(this)"  value="'+id+'">Повернути оригінал</button>');
 			}
   	$('.cropper').remove();
