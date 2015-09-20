@@ -80,6 +80,7 @@ function precrop(obj)
 
 	.done(function(data)
 	{
+		$('.beforeload').hide();
 		data = jQuery.parseJSON(data);
 		frameheight=data.height +30;
 		$('.modalframe').attr('height', frameheight);
