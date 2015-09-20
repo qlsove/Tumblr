@@ -23,7 +23,7 @@ function showCoords(c)
 	y2 = c.y2; $('#y2').val(c.y2);
 	$('#w').val(c.w);
 	$('#h').val(c.h);
-	
+
 		if(c.w > 0 && c.h > 0)
 		{
 			$('#release').show();
@@ -39,10 +39,11 @@ function showCoords(c)
 
 function uncrop(obj)
 {
-	$(obj).closest(".post").append('<img  class="beforeload"  src="/assets/images/cropper/loading.gif" width="100"></div>');
+	$(obj).closest(".post").append('<img  class="beforeload"  src="/assets/images/cropper/loading.gif" width="100">');
 	$('.beforeload').show();
+	
 	$.ajax(
-	{ 
+	{
 		url: "/ajax/uncrop",
 		method: 'POST',
 		data: {"id" : obj.value}
@@ -62,7 +63,7 @@ function uncrop(obj)
 
 
 function precrop(obj)
-{ 
+{
 	id = obj.value;
 	$(".modalframe").append('<div class="cropper"><img  class="beforeload"  src="/assets/images/cropper/loading.gif" width="200"></div>');
 	$('.modalwindow').show();
@@ -128,7 +129,7 @@ function cropthis()
 	.done(function(data) 
 	{
 		data = jQuery.parseJSON(data);
-		
+
   	$('img.progress').css("display", "none");
   	$('.status').show();
   	path="/"+data.url;

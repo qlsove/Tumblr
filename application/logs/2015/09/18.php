@@ -9,3 +9,6 @@
 #5 /var/www/html/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #6 /var/www/html/index.php(57): Kohana_Request->execute()
 #7 {main} in /var/www/html/application/classes/Controller/Ajax.php:120
+2015-09-18 18:51:52 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected ')' ~ APPPATH/classes/Controller/Ajax.php [ 144 ] in file:line
+2015-09-18 18:51:52 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

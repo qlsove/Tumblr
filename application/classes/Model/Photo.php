@@ -27,7 +27,7 @@ class Model_Photo extends Model{
     public function deletePhoto($id)
     { 
         $query = DB::delete($this->table)
-        ->where('post_id', '=', $id)
-        ->execute();
+            ->where('post_id', '=', $id)
+            ->execute();
     }
 }

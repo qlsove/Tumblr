@@ -4,14 +4,13 @@ jQuery(function($)
 
   $('#gallery').click(function(e)
   {
-    $(".modalframe").append('<div id="info"><input type="hidden" class="currentpicture" value="0"><input type="hidden" class="gallerylength" value="0"><img  class="prevpict"  src="/assets/images/gallery/prev.png"><img  class="beforeload"  src="/assets/images/gallery/loading.gif" width="200" ><div class="picture"></div><img  class="close"  src="/assets/images/gallery/close.png"><img  class="nextpict"  src="/assets/images/gallery/next.png"></div>');
+    $(".modalframe").append('<div id="info"><img  class="beforeload"  src="/assets/images/cropper/loading.gif" width="200"><div class="slider"><ul></ul></div><img  class="close"  src="/assets/images/gallery/close.png"></div>');
     $('.modalwindow').show();
     $('.modalframe').show();
     $('.beforeload').show();
-    $('.prevpict').hide();
-    $('.nextpict').hide();
     $("#info").css("background-color", "#B0E2FF");
     var login = $.urlParam('user');
+
     $.ajax(
     { 
       url: "/ajax/gallery",
@@ -21,70 +20,68 @@ jQuery(function($)
 
     .done(function(data)
     {
-      $('.beforeload').hide();
-      $('.close').show();
+      $('.beforeload').remove();
+      $('.close').show(); 
       $("#info").css("background-color", "transparent");
       data = jQuery.parseJSON(data);
         if (data.length>0)
         { 
-          $(".gallerylength").val(data.length); 
-          $(".currentpicture").val(0); 
-          $("#info .picture").append("<img id='currentslide' src='"+data[0].path+"' width='"+data[0].width+"'>")
-            if (data.length>1)
-              $('.nextpict').show();
-        }
+           $.each(data, function(index, data)
+              { 
+                  if(data.height<500)
+                  {
+                    margin=(500-data.height)/2;
+                    $("#info").find("ul").append('<li><img src="'+data.path+'="'+data.side+'"'+data.size+'" alt="" style="margin-top:' +margin+'px;"></li>');
+                  }
+                  else
+                    $("#info").find("ul").append('<li><img src="'+data.path+'="'+data.side+'"'+data.size+'" alt=""></li>');
+              });
+        };
 
-      $('.prevpict').click(function(e)
-      {
-        length = parseInt($(".gallerylength").val());
-        current = parseInt($(".currentpicture").val());
-          if (current-1>=0)
-          {
-            $(".picture #currentslide").attr('src', data[current-1].path);
-            $(".currentpicture").val(current-1);
-            current = parseInt($(".currentpicture").val());
-              if(current>0)
-              {
-                $('.nextpict').show();
-                $('.prevpict').show();
-              }
-              else
-              {
-                $('.nextpict').show();
-                $('.prevpict').hide();
-              }
-          }
-      })
 
-      $('.nextpict').click(function(e)
+      $(".slider").each(function ()
+      { 
+      var obj = $(this);
+      $(obj).append("<div class='nav' width=></div>");
+      $(obj).find("li").each(function ()
       {
-        length = parseInt($(".gallerylength").val());
-        current = parseInt($(".currentpicture").val());
-          if (current+1<=length-1)
-          {
-            $(".picture #currentslide").attr('src', data[current+1].path);
-            $(".currentpicture").val(current+1);
-            current = parseInt($(".currentpicture").val());
-              if (current+1<length)
-              {
-                $('.nextpict').show();
-                $('.prevpict').show();
-              }
-              else
-              {
-                $('.nextpict').hide();
-                $('.prevpict').show();
-              }
-          }
+        $(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>");
+        $(this).addClass("slider"+$(this).index());
+      });
+      sliderlength=data.length;
+      elwidth=parseInt($(".nav").find("span").height());
+      elmarg=parseInt($(".nav").find("span").css("margin-right"));
+      navwidth=sliderlength*(elwidth+elmarg);
+      $(".nav").css('width', navwidth);
+      $(obj).find("span").first().addClass("on");
       });
 
 
-      $('.close').click(function(e)
+
+      function slide (obj, slider)
+      { 
+        var ul = $(slider).find("ul"); 
+        var el = $(slider).find("li.slider"+obj); 
+        var step = $(el).width(); 
+        $(ul).animate({marginLeft: "-"+step*obj}, 500); 
+      }
+
+      $(document).on("click", ".slider .nav span", function()
+      { 
+        var slider = $(this).closest(".slider"); 
+        $(slider).find("span").removeClass("on"); 
+        $(this).addClass("on");
+        var obj = $(this).attr("rel");
+        slide(obj, slider);
+        return false;
+      });
+
+       $('.close').click(function(e)
       {
         $('#info').remove();
         $('.modalwindow').hide();
         $('.modalframe').hide();
-      });
+      })
 
     })
   })
@@ -109,6 +106,16 @@ function addToGallery(obj)
   }); 
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
